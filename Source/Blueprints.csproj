@@ -7,11 +7,18 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <OutputPath>..\Assemblies\</OutputPath>
     <LangVersion>8</LangVersion>
-    <PostBuildEvent>mod update</PostBuildEvent>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref" Version="1.4.3704" />
-    <PackageReference Include="Lib.Harmony" Version="2.2.2" />
+	  <PackageReference Include="Lib.Harmony" Version="2.2.2" >
+		  <ExcludeAssets>runtime</ExcludeAssets>
+	  </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="BetterKeybinding">
+      <HintPath>..\Assemblies\BetterKeybinding.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
 </Project>

@@ -14,11 +14,21 @@ namespace Blueprints
         private          float   _panelHeight    = 999f;
         private          Vector2 _scrollPosition = Vector2.zero;
 
+        /* Without defaultDesc (does defaultLable also count?) game throws this error as of June 07, 2023:
+         *    Exception filling window for Verse.ImmediateWindow: System.NullReferenceException: Object reference not set to an instance of an object
+              at Verse.GenText.TruncateHeight (System.String str, System.Single width, System.Single height, System.Collections.Generic.Dictionary`2[TKey,TValue] cache) [0x00029] in <95de19971c5d40878d8742747904cdcd>:0 
+              at RimWorld.ArchitectCategoryTab+<>c__DisplayClass22_0.<DoInfoBox>b__0 () [0x000df] in <95de19971c5d40878d8742747904cdcd>:0 
+              at Verse.ImmediateWindow.DoWindowContents (UnityEngine.Rect inRect) [0x00000] in <95de19971c5d40878d8742747904cdcd>:0 
+              at Verse.Window.InnerWindowOnGUI (System.Int32 x) [0x001d3] in <95de19971c5d40878d8742747904cdcd>:0  
+            (Filename: C:\buildslave\unity\build\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+        */
         public Designator_Blueprint( Blueprint blueprint )
         {
             Blueprint      = blueprint;
             icon           = Resources.Icon_Blueprint;
             soundSucceeded = SoundDefOf.Designate_PlaceBuilding;
+            defaultDesc = "Default";
+            defaultLabel = "Default";
         }
 
         public Blueprint Blueprint { get; }
